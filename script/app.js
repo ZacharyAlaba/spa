@@ -1,4 +1,4 @@
 Alpine.store("settings", {
-    apiBaseUrl:"http://172.17.100.14:3332/martinito3/api/",  
+    apiBaseUrl:"http://172.17.100.14:3383/cheese/api/",  
     appName: "Electronic store",  
 });
