@@ -33,7 +33,7 @@
             
             <div class="cart-items" x-show="cartItems.length > 0">
                 <template x-for="(item, index) in cartItems" :key="index">
-                    <div class="cart-item" @click="toggleDetails(index)">
+                   <div class="cart-item" @click="toggleDetails(index)">
                         <div class="item-image">
                             <img :src="item.product_image || 'https://via.placeholder.com/80'" 
                                  :alt="item.name">
@@ -826,7 +826,7 @@ Alpine.data("paymentComponent", () => ({
         }
 
         try {
-            const response = await Alpine.store('api').fetch('http://172.17.100.14:3383/alaba6/api/payments/', {
+            const response = await Alpine.store('api').fetch('http://172.17.100.14:3383/cheese/api/payments/', {
                 method: 'POST',
                 body: formData
             });
@@ -848,7 +848,7 @@ Alpine.data("paymentComponent", () => ({
             // Update stock quantities in the database
             for (const item of this.cartItems) {
                 const updatedStock = item.stock - item.quantity;
-                const stockResponse = await Alpine.store('api').fetch(`http://172.17.100.14:3383/alaba6/api/products/${item.id}/`, {
+                const stockResponse = await Alpine.store('api').fetch(`http://172.17.100.14:3383/cheese/api/products/${item.id}/`, {
                     method: "PATCH",
                     body: JSON.stringify({ stock: updatedStock }),
                     headers: { 'Content-Type': 'application/json' }

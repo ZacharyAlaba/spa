@@ -2,7 +2,7 @@
     <div class="header-container">
         <h2 class="ui header">
             <div class="content">
-                Product Display
+                ProductItem
             </div>
         </h2>
         <div class="button-group">
@@ -535,7 +535,7 @@ Alpine.data("productListComponent", () => ({
         this.message = "Loading products...";
         this.messageType = "blue";
 
-        const url = new URL('http://172.17.100.14:3383/cheese/api/products/');
+        const url = new URL('http://172.17.100.14:3383/alaba6/api/products/');
 
         while (retries > 0) {
             try {
@@ -581,7 +581,7 @@ Alpine.data("productListComponent", () => ({
 
         try {
             const updatedStock = product.stock - 1;
-            const stockResponse = await Alpine.store('api').fetch(`http://172.17.100.14:3383/cheese/api/products/${product.id}/`, {
+            const stockResponse = await Alpine.store('api').fetch(`http://172.17.100.14:3383/alaba6/api/products/${product.id}/`, {
                 method: "PATCH",
                 body: JSON.stringify({ stock: updatedStock }),
                 headers: { 'Content-Type': 'application/json' }
@@ -602,7 +602,7 @@ Alpine.data("productListComponent", () => ({
                 formData.append('product_image_url', product.product_image);
             }
 
-            const cartResponse = await Alpine.store('api').fetch(`http://172.17.100.14:3383/cheese/api/cart-items/`, {
+            const cartResponse = await Alpine.store('api').fetch(`http://172.17.100.14:3383/alaba6/api/cart-items/`, {
                 method: "POST",
                 body: formData
             });
@@ -671,7 +671,7 @@ Alpine.data("productListComponent", () => ({
         while (retries > 0) {
             try {
                 const updatedStock = product.stock + newStock;
-                const response = await Alpine.store('api').fetch(`http://172.17.100.14:3383/cheese/api/products/${product.id}/`, {
+                const response = await Alpine.store('api').fetch(`http://172.17.100.14:3383/alaba6/api/products/${product.id}/`, {
                     method: "PATCH",
                     body: JSON.stringify({ stock: updatedStock }),
                     headers: { 'Content-Type': 'application/json' }
@@ -715,7 +715,7 @@ Alpine.data("productListComponent", () => ({
 
         while (retries > 0) {
             try {
-                const response = await Alpine.store('api').fetch(`http://172.17.100.14:3383/cheese/api/products/${product.id}/`, {
+                const response = await Alpine.store('api').fetch(`http://172.17.100.14:3383/alaba6/api/products/${product.id}/`, {
                     method: "DELETE",
                     headers: { 'Content-Type': 'application/json' }
                 });
